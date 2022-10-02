@@ -1,0 +1,11 @@
+<div class="sidebar">
+    <div class="container sidebar-sticky">
+      <nav class="sidebar-nav">
+        {% assign pages_list = site.data.navigation %}
+        {% for node in pages_list %}
+          <a class="sidebar-nav-item{% if page.url == node.link %} active{% endif %}" href="{{ node.link }}">{{ node.name }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+</div>
+  

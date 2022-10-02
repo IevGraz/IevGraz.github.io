@@ -1,0 +1,27 @@
+<div id="grid" class="row flex-grid">
+    {% for item in include.collection %}
+    <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <div class="box-body">
+        <meta content="{{item.date | date_to_xmlschema }}">
+        <time datetime="{{ item.date }}" class="date">{{ item.date | date_to_string }}</time>
+        <a class="post-link" href="{{ item.url | prepend: site.baseurl }}">
+            <h2 class="post-title" itemprop="name">
+                {{ item.title }}  
+            </h2>
+            {% if item.author %}
+            <h4 class="post-details">
+                by {{ item.author }}  
+            </h4>
+            {% endif %}        
+            <p class="description">
+                {% if item.rating %}
+                    {% include stars.html rating = item.rating %}
+                {% endif %}        
+                {{ item.excerpt }}
+            </p>
+        </a>
+        <a class="post-link" href="{{ item.url | prepend: site.baseurl }}"></a>
+    </div>
+    </article>
+    {% endfor %}
+</div>

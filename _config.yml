@@ -1,0 +1,28 @@
+title: "ieva.dev"
+
+collections:
+  book_reviews:
+    output: true
+  reviews:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "book_reviews"
+    values:
+      layout: "book_review"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
