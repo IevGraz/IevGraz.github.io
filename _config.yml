@@ -5,6 +5,8 @@ collections:
     output: true
   reviews:
     output: true
+  conferences:
+    output: true
 
 defaults:
   - scope:
@@ -12,6 +14,11 @@ defaults:
       type: "book_reviews"
     values:
       layout: "book_review"
+  - scope:
+      path: ""
+      type: "conferences"
+    values:
+      layout: "conference"
   - scope:
       path: ""
       type: "posts"

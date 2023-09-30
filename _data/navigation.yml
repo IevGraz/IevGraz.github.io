@@ -2,6 +2,8 @@
   link: /
 - name: About this site
   link: /about_this_site.html
+- name: I attend
+  link: /conferences.html
 - name: I read
   link: /book_reviews.html
 - name: I watch

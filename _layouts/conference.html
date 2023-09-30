@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<div class="conference">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <h3 class="post-details">{{ page.location }}</h3>
+  <span class="post-details">{{ page.date | date_to_string }}</span>
+  {{ content }}
+</div>
