@@ -7,6 +7,8 @@ date: 2024-11-03
 goodreads_link: https://www.goodreads.com/book/show/55841848-learning-go
 ---
 
+
+
 **Why I read this book:** I’ve been coding with Ruby for the past 5 years in my current job. Some time ago Go was chosen as the second official programming language in the company. Time finally came for me to do some coding with Go. But I’ve heard many Go developers complain about people new to the language writing some ugly and complex code. I wanted to avoid making the same mistakes. In the foreword of this book it literally says “This book is for a reader that wants to write Go code that looks like Go code”. So it seemed like exactly the book I needed.
 
 
@@ -130,7 +132,7 @@ These are all related with Slices - Go data type that represents a sequence of v
 * **Indexing and slicing of strings**. Go uses a sequence of bytes to represent a string. You can use slicing and indexing on strings, but you can get unexpected results with characters that take up more than one byte. You should instead use the  `for-range` loop to iterate over strings.
 * **Passing a slice to a function** has a complicated behavior: any modifications to the contents is reflected in the original variable, but using append to change the length isn’t reflected. 
 
-### What I liked
+### What I liked about it
 
 * The book is exactly what I was looking for - introduction to the programming language with explanations of what code is Go-like and why. 
 * The explanations were really good. If I couldn’t grasp what was being said from the text alone, the code snippets usually helped me to figure it out. 
@@ -140,9 +142,6 @@ These are all related with Slices - Go data type that represents a sequence of v
 ### What I disliked
 
 These are not necessarily dislikes, but some limitations of the book (or maybe me in some cases):
-
-
-
 * There were places that I found hard to grasp. Mostly concurrency and reflections. But that might have required a bit more effort than I was willing to put in.
 * My focus and effort dwindled towards the last chapters. Which is unfortunate as they were more complex and most likely more useful. 
 * Only reading about the programming language is not enough to really learn it. I’ve heard that the second edition of the book has some exercises at the end of each chapter.  That could be a pretty big improvement. I’m hoping to cover this gap in my knowledge by attending a few workshops. 
