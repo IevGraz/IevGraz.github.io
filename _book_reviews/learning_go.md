@@ -37,19 +37,68 @@ Two **goals of Go** with some examples of how that affects the way Go is written
 
 **Comma ok idiom** - it is common for methods in Go to return 2 values: the actual return value + a boolean that tells if the value was really present. This is used with maps, type assertions, channels. 
 
+```Go
+m := map[string]int {
+    "hello": 5,
+    "goodbye": 10
+}
+
+v, ok = m["hello"]
+```
+
 **Go doesn’t have classes**, because it doesn’t have inheritance. You can declare a type based on another type. This is not inheritance: you can’t use the two types interchangeably and the methods defined on one type are not present on the other. This is just for the sake of documentation - expressing that you have same underlying data, but different sets of operations
 
 **Closures** - functions declared inside of functions that are able to access and modify variables declared in outer functions. Functions usually return closures so that the calling functions can call them via *defer* keyword and trigger some required cleanup this way. *defer* keyword delays function invocation until the surrounding function exits. You can defer multiple closures, they run in last in first out (LIFO) order - last defer registered runs first. 
 
+Defining a closure within a function:
+
+```Go
+func getFile(name string) (*os.File, func(), error) {
+    file, err := os.Open(name)
+    if err != nil {
+        return nil, nil, err
+    }
+
+    return file, func() {
+        file.Close()
+    }, nil
+}
+```
+
+Defering of the closure:
+
+```Go
+f, closer, err = getFile("MyFile")
+if err != nil {
+    log.Fatal(err)
+}
+
+defer closer()
+```
+
 **Call by value** - when you supply a variable for a parameter to a function, Go always makes a copy of the value of the variable. If you need to modify the parameter within a function - use pointers. If a pointer is passed to a function, the function gets a copy of the pointer. This still points to the original data.
 
 **Embedding**. Go doesn’t have inheritance, but it encourages code reuse via built-in support for composition and promotion. You can embed a field into a struct. Any fields or methods declared on the embedded field are promoted to the containing struct and can be invoked directly on it. I especially liked the following **warning**: many developers try to understand embedding by treating it as inheritance. *That way lies tears*. You cannot assign the new type to a variable that requires the embedded type. 
+
+```Go
+type Item struct {
+    baseItem // embedded field
+    str string
+}
+```
 
 **Interfaces**  in Go are implicit: a concrete type does not declare that it implements an interface. If the type has all the methods defined on the interface, the concrete type implements the interface. 
 
 Experienced Go developers say “***Accept interfaces, return structs***”.
 
 **Struct tags** - strings that are written after the fields in a struct. Composed of one or more tag/ value pairs, written as *tagName*: “*tagValue*” and separated by spaces. They cannot extend past a single line. Because struct tags are just strings, the compiler cannot validate that they are formatted correctly, but `go vet` does. They are used for specifying rules for processing JSON, reading values from environment variables etc. 
+
+```Go
+type Item struct {
+    ID string `json:"id"`
+    Name string `json:"name"`
+}
+```
 
 **Concurrency in Go**. According to the philosophy of Go, using things like mutexes to handle concurrency in a program obscures the flow of data. Go uses Goroutines (lightweight processes managed by Go runtime) and Channels (special data types) to handle concurrency. When a value is passed from goroutine to goroutine over a series of channels, the data flow is clear. However there seem to be a lot going on to support the Goroutine approach - done channel pattern, wait groups, buffered vs unbuffered channels. Those seemed quite hard to grasp.
 
