@@ -368,3 +368,8 @@ a.sidebar-nav-item:focus {
    margin-bottom: 1rem;
    color: #9a9a9a;
  }
+/* Books-per-year histogram on book_reviews. ponytail: 15px per book, fixed 120px box fits max 8/year; bump height if a year exceeds that */
+.year-histogram { display: flex; align-items: flex-end; gap: 4px; height: 120px; margin: 1.5rem 0 2.5rem; }
+.year-histogram .bar { flex: 1; height: calc(var(--n) * 15px); background: #515151; position: relative; }
+.year-histogram span { position: absolute; top: -1.3em; left: 0; right: 0; text-align: center; font-size: .8rem; }
+.year-histogram small { position: absolute; bottom: -1.5em; left: 0; right: 0; text-align: center; font-size: .7rem; }
