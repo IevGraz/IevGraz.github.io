@@ -16,7 +16,7 @@ Most chapters have a point where the author says, "If this is your first time th
 
 **What I disliked:**
 
-The first nine chapters were the most interesting for me. Once I reached the networking chapters, I really started to struggle. They felt too far removed from any work I've ever done. I think they're the reason it took me so long to finish the book. Some of the final chapters, like the introduction to shell scripting, the Linux desktop, and printers, felt completely irrelevant to me. The shell scripting one would probably have been useful before AI tools got so good. If you do want to get better at the command line, I'd point you to [Efficient Linux at the Command Line](/book_reviews/efficient_linux.html) instead.
+The first nine chapters were the most interesting for me. Once I reached the networking chapters, I really started to struggle. They felt too far removed from any work I've ever done. I think they're the reason it took me so long to finish the book. Some of the final chapters, like the introduction to shell scripting, the Linux desktop, and printers, felt completely irrelevant to me. The shell scripting one would probably have been useful before AI tools got so good.
 
 The author doesn't always explain things in the clearest way. At some point I started sending screenshots of the paragraphs I struggled with most to an AI. It gave me much simpler explanations.
 
